@@ -31,7 +31,6 @@ def bfs(x, y):
     visited[x][y] = 1
     while queue:
         x, y = queue.popleft()
-        print(x, y)
         size += 1
         for i in range(4):
             nx = x + dx[i]

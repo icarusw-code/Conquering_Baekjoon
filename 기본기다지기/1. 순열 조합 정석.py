@@ -37,7 +37,18 @@ def com(lev, start):
         result[lev] = arr[i]
         com(lev + 1, i + 1)
 
+# 부분집합
+def subset(L, ss):
+    if L == n:
+        if not ss:                  # 공집합은 제거
+            return
+        print(ss)
+        return
+    subset(L+1, ss + [arr[L]])  # 해당 원소를 선택 O => [] + [1] = [1]
+    subset(L+1, ss)               # 해당 원소를 선택 X
+
 
 # r_per(0)
 # per(0)
-com(0, 0)
+# com(0, 0)
+# subset(0, [])
