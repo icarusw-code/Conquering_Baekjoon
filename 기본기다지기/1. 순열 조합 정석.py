@@ -1,54 +1,54 @@
-n = int(input())
-arr = list(map(int, input().split()))
+# n = int(input())
+# arr = list(map(int, input().split()))
 
-result = [0] * n
-
-
-def r_per(lev):
-    if lev == n:
-        print(*result)
-        return
-    for i in range(len(arr)):
-        result[lev] = arr[i]
-        r_per(lev + 1)
+# result = [0] * n
 
 
-used = [0] * len(arr)
+# def r_per(lev):
+#     if lev == n:
+#         print(*result)
+#         return
+#     for i in range(len(arr)):
+#         result[lev] = arr[i]
+#         r_per(lev + 1)
 
 
-def per(lev):
-    if lev == n:
-        print(*result)
-        return
-    for i in range(len(arr)):
-        if used[i] == 1:
-            continue
-        used[i] = 1
-        result[lev] = arr[i]
-        per(lev + 1)
-        used[i] = 0
+# used = [0] * len(arr)
 
 
-def com(lev, start):
-    if lev == n:
-        print(*result)
-        return
-    for i in range(start, len(arr)):
-        result[lev] = arr[i]
-        com(lev + 1, i + 1)
+# def per(lev):
+#     if lev == n:
+#         print(*result)
+#         return
+#     for i in range(len(arr)):
+#         if used[i] == 1:
+#             continue
+#         used[i] = 1
+#         result[lev] = arr[i]
+#         per(lev + 1)
+#         used[i] = 0
 
 
-# 부분집합
-def subset(lev, ss):
-    if lev == n:
-        if not ss:  # 공집합은 제거
-            return
-        print(ss)
-        return
-    subset(lev + 1, ss + [arr[lev]])  # 해당 원소를 선택 O => [] + [1] = [1]
-    subset(lev + 1, ss)  # 해당 원소를 선택 X
+# def com(lev, start):
+#     if lev == n:
+#         print(*result)
+#         return
+#     for i in range(start, len(arr)):
+#         result[lev] = arr[i]
+#         com(lev + 1, i + 1)
 
-# 다음 순열
+
+# # 부분집합
+# def subset(lev, ss):
+#     if lev == n:
+#         if not ss:  # 공집합은 제거
+#             return
+#         print(ss)
+#         return
+#     subset(lev + 1, ss + [arr[lev]])  # 해당 원소를 선택 O => [] + [1] = [1]
+#     subset(lev + 1, ss)  # 해당 원소를 선택 X
+
+# # 다음 순열
 
 
 array = list(map(int, input().split()))
@@ -56,17 +56,17 @@ array = list(map(int, input().split()))
 
 def next_perm(array):
     i = len(array) - 1
-    while i > 0 and array[i-1] >= array[i]:
+    while i > 0 and array[i - 1] >= array[i]:
         i -= 1
 
     if i <= 0:
         return False
 
     j = len(array) - 1
-    while array[i-1] >= array[j]:
+    while array[i - 1] >= array[j]:
         j -= 1
 
-    array[i-1], array[j] = array[j], array[i-1]
+    array[i - 1], array[j] = array[j], array[i - 1]
 
     j = len(array) - 1
     while i < j:
@@ -79,10 +79,6 @@ def next_perm(array):
 
 if next_perm(array):
     print(array)
-
-
-
-
 
 
 # r_per(0)
