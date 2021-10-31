@@ -19,7 +19,7 @@ visited = list(([0] * 5) for _ in range(4))
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
 
-visited[0][0] = 0
+# visited[0][0] = 0
 
 
 def bfs(x, y):
